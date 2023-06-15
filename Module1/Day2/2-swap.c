@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-// Generic swap function using type casting
-void swap(void* a, void* b, size_t size) {
-    void* temp = malloc(size);
+void swap(void *a, void *b, size_t size) {
+    void *temp = malloc(size);
     memcpy(temp, a, size);
     memcpy(a, b, size);
     memcpy(b, temp, size);
@@ -10,18 +11,11 @@ void swap(void* a, void* b, size_t size) {
 }
 
 int main() {
-    int a,b;
-    printf("enter the a value:\n");
-    scanf("%d",&a);
-    printf("enter the b value:\n");
-    scanf("%d",&b);
-    printf("Before swap: a = %d, b = %d\n", a, b);
-
-    // Swapping integers
-    swap(&a, &b, sizeof(int));
-    printf("After swap: a = %d, b = %d\n", a, b);
-
-   
-
+    int num1, num2;
+    printf("Enter two integers: ");
+    scanf("%d %d", &num1, &num2);
+    printf("Before swap: num1 = %d, num2 = %d\n", num1, num2);
+    swap(&num1, &num2, sizeof(int));
+    printf("After swap: num1 = %d, num2 = %d\n", num1, num2);
     return 0;
 }
